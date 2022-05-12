@@ -1,19 +1,13 @@
 // import { useState } from "react";
 
 function LightSwitchButton(props) {
-
-  const handleClick = () => {
-    if(props.light === "on") {
-      props.setLight("off")
-    } else {
-      props.setLight("on")
-    }
-  }
+  const { light, switchLight } = props;
+  const handleClick = () => switchLight();
 
   return (
   <button className="LightSwitchButton"onClick={handleClick}>
-    {props.light === "on" && <span><i>💡</i> I'm on!</span>}
-    {props.light === "off" && <span className="off"><i>💡</i> I'm off!</span>}
+    {light === "on" && <span><i>💡</i> I'm on!</span>}
+    {light === "off" && <span className="off"><i>💡</i> I'm off!</span>}
   </button>
   );
 }
